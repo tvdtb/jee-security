@@ -1,0 +1,60 @@
+#http://serverfault.com/questions/438777/how-do-you-set-the-admin-password-on-openldap-2-4
+#
+
+apt-get install slapd ldap-utils
+dpkg-reconfigure slapd
+ldapsearch -D 'cn=admin, dc=test, dc=com' -w admin objectclass=\*
+
+ldapadd -D 'cn=admin, dc=test, dc=com' -w admin -f test.ldif
+
+test.ldif:
+-----------------------------------------------------
+# this is an ENTRY sequence and is preceded by a BLANK line
+
+dn: ou=people, dc=test,dc=com
+ou: people
+description: All people in organisation
+objectclass: organizationalunit
+
+
+## SECOND Level hierarchy
+## ADD a single entry under FIRST (people) level
+
+dn: cn=test1,ou=people,dc=test,dc=com
+objectclass: inetOrgPerson
+cn: test
+sn: test
+uid: test
+userpassword: test
+mail: test@test.com
+description: test
+-----------------------------------------------------
+
+ldapsearch -D 'cn=test1, ou=people, dc=test, dc=com' -w test objectclass=\*
+
+
+
+wget http://download.jboss.org/wildfly/9.0.2.Final/wildfly-9.0.2.Final.tar.gz
+
+
+
+
+
+
+
+
+
+
+
+
+
+#slappasswd
+admin
+admin
+
+ldapmodify -Q -Y EXTERNAL -H ldapi:/// << E0F
+dn: olcDatabase={0}config,cn=config
+changetype: modify
+add: olcRootPW
+olcRootPW: {SSHA}EdZZI1v+t15pz6C3kQ1KD8CbgcpT50Zk
+E0F
