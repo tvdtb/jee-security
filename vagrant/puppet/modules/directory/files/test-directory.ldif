@@ -1,0 +1,56 @@
+# PEOPLE
+
+dn: ou=people, dc=test,dc=com
+ou: people
+description: All people in organisation
+objectclass: organizationalunit
+
+dn: cn=test1,ou=people,dc=test,dc=com
+objectclass: inetOrgPerson
+cn: test1
+sn: test1
+uid: test1
+userpassword: test
+mail: test@test.com
+description: test1 
+
+dn: cn=test2,ou=people,dc=test,dc=com
+objectclass: inetOrgPerson
+cn: test2
+sn: test2
+uid: test2
+userpassword: test
+mail: test@test.com
+description: test2 
+
+dn: cn=test3,ou=people,dc=test,dc=com
+objectclass: inetOrgPerson
+cn: test3
+sn: test3
+uid: test3
+userpassword: test
+mail: test@test.com
+description: test3 
+
+# GROUPS
+
+dn: ou=groups, dc=test,dc=com
+ou: groups
+description: All groups in organisation
+objectclass: organizationalunit
+
+dn: cn=users,ou=groups,dc=test,dc=com
+objectclass: groupofnames
+cn: users
+member: cn=test1,ou=people,dc=test,dc=com
+member: cn=test2,ou=people,dc=test,dc=com
+
+dn: cn=admins,ou=groups,dc=test,dc=com
+objectclass: groupofnames
+cn: admins
+member: cn=test1,ou=people,dc=test,dc=com
+
+dn: cn=developers,ou=groups,dc=test,dc=com
+objectclass: groupofnames
+cn: developers
+member: cn=test2,ou=people,dc=test,dc=com
