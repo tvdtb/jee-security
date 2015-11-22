@@ -5,6 +5,7 @@ A [vagrantup](http://vagrantup.com/) server configuration.
 Refer to [puppet/manifests/site.pp](puppet/manifests/site.pp) for the current set of active configurations.
 
 ## Environment
+
 *Box Image: ubuntu/trusty64
 *Networking: Private, 192.168.33.10
 

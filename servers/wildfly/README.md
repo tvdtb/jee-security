@@ -1,6 +1,6 @@
 # wildfly
 
-[wildfly](http://www.wildfly.com/) server configurations.
+[wildfly](http://wildfly.org/downloads/) server configurations.
 
 ## OpenLDAP access
 [OpenLDAP](wildfly-openldap.md) configuration.
