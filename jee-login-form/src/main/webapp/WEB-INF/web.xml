@@ -4,7 +4,7 @@
 
 	<display-name>jee-login-basic</display-name>
 
-	<!--  require a login for all resources in /secure -->
+	<!-- require a login for all resources in /secure -->
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>secure</web-resource-name>
@@ -16,7 +16,7 @@
 		</auth-constraint>
 	</security-constraint>
 
-	<!--  require admin group for admin -->
+	<!-- require admin group for admin -->
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>secure-admin</web-resource-name>
@@ -28,24 +28,26 @@
 		</auth-constraint>
 	</security-constraint>
 
-	<!-- in this case it's basic http authentication -->
+	<!-- in this case it's form-based authentication -->
 	<login-config>
-		<auth-method>BASIC</auth-method>
-		<realm-name>TEST Realm</realm-name>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login.html</form-login-page>
+			<form-error-page>/error.html</form-error-page>
+		</form-login-config>
 	</login-config>
 
-	<!--  declare the roles, the first 3 roles are really directory roles -->
+	<!-- declare the roles, the first 3 roles are really directory roles -->
 	<security-role>
 		<role-name>users</role-name>
 	</security-role>
 	<security-role>
 		<role-name>admins</role-name>
 	</security-role>
-	<!-- the developers role is neither declared nor used in a constraint, but checked by the servlet code -->
-	<!-- security-role>
-		<role-name>developers</role-name>
-	</security-role -->
-	<!--  this role is a pseudo-role defined by LdapModule -->
+	<!-- the developers role is neither declared nor used in a constraint, but 
+		checked by the servlet code -->
+	<!-- security-role> <role-name>developers</role-name> </security-role -->
+	<!-- this role is a pseudo-role defined by LdapModule -->
 	<security-role>
 		<role-name>AllAuthenticatedUsers</role-name>
 	</security-role>

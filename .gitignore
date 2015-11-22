@@ -2,4 +2,5 @@
 .classpath
 .jsdtscope
 .settings/
+.vagrant/
 target/

@@ -6,11 +6,11 @@ Run e.g. with the given [wildfly configuration](../servers/wildfly/wildfly-openl
 
 Try the following links
 
-[http://localhost:8080/jee-security-basic/](http://localhost:8080/jee-security-basic/)  (no auth)
+[http://localhost:8080/jee-login-basic/login.info](http://localhost:8080/jee-login-basic/login.info)  (no auth)
 
-[http://localhost:8080/jee-security-basic/secure/](http://localhost:8080/jee-security-basic/secure/)  (basic auth)
+[http://localhost:8080/jee-login-basic/secure/login.info](http://localhost:8080/jee-login-basic/secure/login.info)  (basic auth)
 
-[http://localhost:8080/jee-security-basic/secure/admin/](http://localhost:8080/jee-security-basic/secure/admin/) (only admins)
+[http://localhost:8080/jee-login-basic/secure/admin/login.info](http://localhost:8080/jee-login-basic/secure/admin/login.info) (only admins)
 
 
 The application displays the known roles.
