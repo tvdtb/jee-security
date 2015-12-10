@@ -5,9 +5,15 @@
 	<groupId>com.trivadis.jee.security</groupId>
 	<artifactId>jee-login-form</artifactId>
 	<packaging>war</packaging>
-	<version>1.0</version>
+	<version>1.0-SNAPSHOT</version>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.trivadis.jee.security</groupId>
+			<artifactId>jee-security-info</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+			
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>

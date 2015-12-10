@@ -3,17 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.trivadis.jee.security</groupId>
-	<artifactId>jee-login-basic</artifactId>
-	<packaging>war</packaging>
+	<artifactId>jee-security-info</artifactId>
+	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.trivadis.jee.security</groupId>
-			<artifactId>jee-security-info</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
-
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
@@ -30,13 +24,6 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 		</plugins>

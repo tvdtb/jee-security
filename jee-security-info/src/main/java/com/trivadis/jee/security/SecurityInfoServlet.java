@@ -50,6 +50,12 @@ public class SecurityInfoServlet extends HttpServlet {
 			writer.append(String.format("\n%1$tH:%1$tM:%1$tS.%1$tL\n",
 					new Date()));
 
+			writer.append("<br/><br/>");
+			String contextPath = req.getServletContext().getContextPath();
+			writer.append("<a href=\"/"+contextPath+"/index.html\">/"+contextPath+"index.html</a> <br/>" );
+			writer.append("<a href=\"/"+contextPath+"/secure/x.info\">/"+contextPath+"x.info</a> <br/>" );
+			writer.append("<a href=\"/"+contextPath+"/secure/x.info\">/"+contextPath+"/secure/x.info</a> <br/>" );
+			
 			writer.append("</body></html>");
 		} else {
 			writer.append("UNAUTHENTICATED\n");
