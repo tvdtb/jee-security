@@ -1,5 +1,7 @@
 package com.trivadis.jee.security.wildfly.preauth;
 
+import java.util.logging.Logger;
+
 import javax.servlet.http.HttpServletResponse;
 
 import io.undertow.security.api.AuthenticationMechanism;
@@ -13,6 +15,8 @@ public class PreAuthAuthenticationMechanism implements AuthenticationMechanism {
 
 	private static final char[] EMPTY_CHARS = new char[0];
 	private String mechanismName;
+	
+	private static Logger LOG = Logger.getLogger(PreAuthAuthenticationMechanism.class.getName());
 
 	public PreAuthAuthenticationMechanism(String mechanismName) {
 		this.mechanismName = mechanismName;
@@ -21,20 +25,17 @@ public class PreAuthAuthenticationMechanism implements AuthenticationMechanism {
 
 	@Override
 	public AuthenticationMechanismOutcome authenticate(HttpServerExchange exchange, SecurityContext securityContext) {
-		System.out.println("AUTHENTICATE ");
-
 		AuthenticationMechanismOutcome auth = AuthenticationMechanismOutcome.NOT_AUTHENTICATED;
 		Cookie cookie = exchange.getRequestCookies().get("auth");
 		if (cookie != null) {
 			String accountName = cookie.getValue();
-			System.out.println("   accountName=" + accountName);
+			LOG.info("accountName=" + accountName);
 
 			Account verifiedAccount = securityContext.getIdentityManager().verify(accountName,
 					new PasswordCredential(EMPTY_CHARS));
 			if (verifiedAccount != null) {
-				System.out.println("ACCOUNT: " + verifiedAccount.getPrincipal().getName() //
+				LOG.info("ACCOUNT: " + verifiedAccount.getPrincipal().getName() //
 						+ " roles=" + verifiedAccount.getRoles() //
-						+ "  account=" + verifiedAccount //
 				);
 
 				securityContext.authenticationComplete(verifiedAccount, mechanismName, true);
@@ -45,7 +46,7 @@ public class PreAuthAuthenticationMechanism implements AuthenticationMechanism {
 	}
 
 	@Override
-	public ChallengeResult sendChallenge(HttpServerExchange arg0, SecurityContext arg1) {
+	public ChallengeResult sendChallenge(HttpServerExchange req, SecurityContext sc1) {
 		return new ChallengeResult(true, HttpServletResponse.SC_UNAUTHORIZED);
 	}
 
