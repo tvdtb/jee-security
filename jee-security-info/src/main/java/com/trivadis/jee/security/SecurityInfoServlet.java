@@ -20,6 +20,7 @@ public class SecurityInfoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String userName = req.getRemoteUser();
+		resp.setContentType("text/html; charset=utf-8"); 
 		PrintWriter writer = resp.getWriter();
 		writer.append("<html>\n<body>\n");
 
