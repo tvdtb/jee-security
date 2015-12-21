@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>login </title>
+	<link href="static/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="container">
+	<div class="header">
+		<img src="static/logo.png" alt="logo" class="header-logo">
+		<h1 class="header-title">JEE login</h1>
+	</div>
+	<div class="main">
+
+			<h2 class="main-title main-title-bold">Login to JEE</h2>
+
+			<noscript>&lt;p&gt;Your browser does not support JavaScript, you won't be able to use this website.&lt;/p&gt;</noscript>
+
+			<form action="j_security_check" method="POST" id="Form1" accept-charset="UTF-8">
+				<input type="hidden" name="authmech" value="Login to JEE">
+
+				<div class="form-group">
+					<label for="username">Benutzername</label>
+					<input type="text" id="username" name="j_username" value="" autocomplete="off" class="form-control input-lg" autofocus="">
+				</div>
+
+				<div class="form-group">
+					<label for="password">Passwort</label>
+					<input type="password" id="password" name="j_password" autocomplete="off" class="form-control input-lg">
+				</div>
+
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="j_private"> Ich nutze einen privaten Computer
+					</label>
+				</div>
+
+				<div class="form-group-submit">
+					<input type="submit" value="Anmelden" id="Login" name="Login" class="btn btn-nexus btn-lg">
+				</div>
+
+			</form>
+
+
+	</div>
+</div>
+
+</body></html>
