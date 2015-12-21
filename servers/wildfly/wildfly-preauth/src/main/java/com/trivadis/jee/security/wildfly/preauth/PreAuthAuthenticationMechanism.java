@@ -42,6 +42,7 @@ public class PreAuthAuthenticationMechanism implements AuthenticationMechanism {
 				auth = AuthenticationMechanismOutcome.AUTHENTICATED;
 			}
 		}
+		LOG.info("auth result="+auth);
 		return auth;
 	}
 
